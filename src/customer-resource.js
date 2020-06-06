@@ -3,7 +3,7 @@ import defaultResolver from './default-resolver';
 import handleCustomerMutation from './handle-customer-mutation';
 
 // GraphQL
-import customerNodeQuery from './graphql/customerNodeQuery.graphql';
+import customerQuery from './graphql/customerQuery.graphql';
 import customerAccessTokenCreateMutation from './graphql/customerAccessTokenCreateMutation.graphql';
 import customerAccessTokenDeleteMutation from './graphql/customerAccessTokenDeleteMutation.graphql';
 import customerAccessTokenRenewMutation from './graphql/customerAccessTokenRenewMutation.graphql';
@@ -322,7 +322,7 @@ class CustomerResource extends Resource {
    */
   fetch(customerAccessToken) {
     return this.graphQLClient
-      .send(customerNodeQuery, {customerAccessToken})
+      .send(customerQuery, {customerAccessToken})
       .then(defaultResolver('customer'));
   }
 }
