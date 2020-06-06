@@ -9987,12 +9987,12 @@ function query$26(client) {
     root.add("updatedAt");
   });
   document.addQuery([variables.__defaultOperation__.customerAccessToken], function (root) {
-    root.add("node", {
+    root.add("customer", {
       args: {
         customerAccessToken: variables.__defaultOperation__.customerAccessToken
       }
-    }, function (node) {
-      node.addFragment(spreads.CustomerFragment);
+    }, function (customer) {
+      customer.addFragment(spreads.CustomerFragment);
     });
   });
   return document;
@@ -12712,13 +12712,13 @@ var CustomerResource = function (_Resource) {
   }, {
     key: 'fetch',
     value: function fetch(customerAccessToken) {
-      return this.graphQLClient.send(query$26, { customerAccessToken: customerAccessToken }).then(defaultResolver('node'));
+      return this.graphQLClient.send(query$26, { customerAccessToken: customerAccessToken }).then(defaultResolver('customer'));
     }
   }]);
   return CustomerResource;
 }(Resource);
 
-var version = "2.10.0";
+var version = "2.10.0-pw0.1.4";
 
 var ApiVersion = {
   "name": "ApiVersion",
